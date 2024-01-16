@@ -35,9 +35,6 @@ def cli(verbose, csvfile, database, table, mode):
     except ValueError as e:
         print("[!] Error : {}".format(e))
         exit(1)
-    except:
-        print("Error")
-        exit(2)
 
 
 if __name__ == '__main__':
