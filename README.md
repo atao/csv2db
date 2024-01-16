@@ -31,3 +31,13 @@ Just run for example :
 ```python
 csv2db.py --csvfile mycsv.csv --database mycsv.db --table mydata --mode replace --verbose
 ```
+
+Output :
+```
+[+] Reading file mycsv.csv
+[+] Using columns : Index(['ID', 'Logged At', 'Not Before', 'Not After', 'Common Name',
+       'Matching Identities', 'Issuer Name'],
+      dtype='object')
+[+] Insert into "mycsv.db" with "mydata" as table name
+[+] Using mode : replace
+```

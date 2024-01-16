@@ -23,12 +23,14 @@ def cli(verbose, csvfile, database, table, mode):
 
     # Import data in DataFrame
     if verbose:
-        print("[+] Reading CSV file...")
+        print("[+] Reading file {}".format(csvfile))
     df = pd.read_csv(csvfile)
+    if verbose:
+        print("[+] Using columns : {}".format(df.columns))
 
     # Insert to database
     if verbose:
-        print("[+] Insert into {}...".format(database))
+        print('[+] Insert into "{}" with "{}" as table name\n[+] Using mode : {}'.format(database, table, mode))
     conn = sqlite3.connect(database)
     try:
         df.to_sql(con=conn, name=table, if_exists=mode)
