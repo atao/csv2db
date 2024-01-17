@@ -36,7 +36,8 @@ def cli(verbose, csvfile, database, table, mode):
     except ValueError as e:
         print("[!] Error : {}".format(e))
         exit(1)
-
+    finally:
+        conn.close()
 
 if __name__ == '__main__':
     if len(sys.argv) == 1:
