@@ -26,8 +26,7 @@ def cli(verbose, csvfile, database, table, mode):
         print("[+] Reading file {}".format(csvfile))
     df = pd.read_csv(csvfile)
     if verbose:
-        print("[+] Using columns : {}".format(df.columns))
-
+        print(df.info(verbose=True))
     # Insert to database
     if verbose:
         print('[+] Insert into "{}" with "{}" as table name\n[+] Using mode : {}'.format(database, table, mode))
