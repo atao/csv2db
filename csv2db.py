@@ -1,5 +1,6 @@
 import sqlite3
 import sys
+
 import click
 import pandas as pd
 
@@ -38,6 +39,7 @@ def cli(verbose, csvfile, database, table, mode):
         exit(1)
     finally:
         conn.close()
+
 
 if __name__ == '__main__':
     if len(sys.argv) == 1:
