@@ -16,28 +16,31 @@ pip install -r requirements.txt
 Usage: csv2db.py [OPTIONS]
 
 Options:
-  --version                       Show the version and exit.
-  -i, --csvfile TEXT              CSV file  [required]
-  -d, --database TEXT             Database name.  [default: database.db]
-  -t, --table TEXT                Table name.  [default: data]
-  -m, --mode [fail|replace|append]
-                                  if data already exist do  [default: fail]
-  -v, --verbose                   Verbose mode.
-  -h, --help                      Show this message and exit.
+  --version                  Show the version and exit.
+  -i, --csvfile TEXT         CSV file  [required]
+  -sep, --separator TEXT     CSV field separator.  [default: ;]
+  -chk, --chunksize INTEGER  Number of rows per chunk to process.  [default:
+                             10000]
+  -d, --database TEXT        Database name.  [default: database.db]
+  -t, --table-name TEXT      Table name.  [default: data]
+  -idx, --include-index      Include index in SQLite Database.
+  -v, --verbose              Verbose mode.
+  -h, --help                 Show this message and exit.
 ```
 
 ## Quickstart
 Just run for example :
-```python
-csv2db.py --csvfile mycsv.csv --database mycsv.db --table mydata --mode replace --verbose
+```
+(.venv) ME > python .\csv2db.py -i .\adresses-31.csv -sep ";" -chk 10000 -d 31 -idx -v
 ```
 
 Output :
 ```
-[+] Reading file mycsv.csv
-[+] Using columns : Index(['ID', 'Logged At', 'Not Before', 'Not After', 'Common Name',
-       'Matching Identities', 'Issuer Name'],
-      dtype='object')
-[+] Insert into "mycsv.db" with "mydata" as table name
-[+] Using mode : replace
+[+] Importing .\adresses-31.csv into SQLite database 31.db
+[+] 10000 rows added to the database
+[+] 10000 rows added to the database
+...
+[+] 10000 rows added to the database
+[+] 5214 rows added to the database
+[+] CSV data import process completed.
 ```
